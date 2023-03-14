@@ -19,7 +19,9 @@ function clickSubmit(e) {
   amountInput = Number(amount.value);
 
   for (let i = 1; i <= amountInput; i += 1) {
-    delayInput += stepInput;
+    if(i>1){
+      delayInput += stepInput;
+    }
     createPromise(i, delayInput)
     .then(({ position, delay }) => {
       Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
